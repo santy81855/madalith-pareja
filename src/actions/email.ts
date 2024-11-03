@@ -1,3 +1,4 @@
+/*
 "use server";
 import { GeneralMessageTemplate } from "@/lib/EmailTemplate";
 import { Resend } from "resend";
@@ -32,3 +33,4 @@ export async function send(data: {
         return { error: "Error sending email" };
     }
 }
+*/
