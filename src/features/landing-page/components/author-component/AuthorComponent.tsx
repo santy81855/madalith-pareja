@@ -19,8 +19,8 @@ const AuthorComponent = ({
                     className={styles.image}
                     src={image}
                     alt="author"
-                    width={3024}
-                    height={4032}
+                    width={900}
+                    height={1200}
                     quality={40}
                     priority
                 />
