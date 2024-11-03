@@ -1,0 +1,148 @@
+.authorComponent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: var(--max-width-small);
+}
+
+.imageContainer {
+    display: flex;
+    aspect-ratio: 3024/4032;
+    height: auto;
+    min-width: 250px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    filter: blur(0.4px);
+    position: relative;
+    overflow: hidden;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+}
+
+.imageContainer::after {
+    content: "The Author";
+    position: absolute;
+    top: var(--padding-block-medium);
+    left: 0;
+    width: fit-content;
+    height: fit-content;
+    padding-inline-start: var(--padding-inline-large);
+    padding-inline-end: var(--padding-inline-small);
+    padding-block: calc(var(--padding-block-small) / 3);
+    z-index: 2;
+    background-color: white;
+    color: black;
+    font-size: var(--font-size-small);
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    gap: var(--padding-block-medium);
+    padding-inline-start: var(--padding-inline-x2large);
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.1em;
+}
+
+.title {
+    font-size: var(--font-size-small);
+    font-weight: bold;
+    color: blue;
+}
+
+.name {
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+    color: black;
+}
+
+.description {
+    font-size: var(--font-size-small);
+    color: grey;
+}
+
+.rowContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--padding-block-medium);
+}
+
+.verticalDivider {
+    height: 100%;
+    width: 2px;
+    background-color: lightgray;
+    opacity: 0.5;
+}
+
+.colContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--padding-block-small);
+}
+
+.colTitle {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    color: black;
+}
+
+.colText {
+    font-size: var(--font-size-small);
+    color: grey;
+}
+
+.button {
+    background-color: white;
+    border-radius: var(--border-radius);
+    border: none;
+    border: 1px solid rgba(211, 211, 211, 0.349);
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
+    padding-inline: var(--padding-block-medium);
+    padding-block: calc(var(--padding-block-small) / 2);
+    color: black;
+}
+
+.buttonSpecial {
+    background-color: blue;
+    color: white;
+}
+
+.buttonRow {
+    margin-block-start: var(--padding-block-medium);
+}
+
+@media (max-width: 620px) {
+    .authorComponent {
+        flex-direction: column;
+        gap: var(--padding-block-large);
+    }
+
+    .imageContainer {
+        aspect-ratio: 1/1.3;
+        width: 100%;
+        height: auto;
+    }
+
+    .textContainer {
+        padding: 0;
+        width: 100%;
+        height: fit-content;
+    }
+}

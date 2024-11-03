@@ -1,0 +1,178 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-block-large);
+    align-items: center;
+    justify-content: center;
+    max-width: var(--max-width-small);
+}
+
+.imageContainer {
+    background-color: rgb(var(--accent-color-light-rgb));
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 3em;
+}
+
+.image {
+    aspect-ratio: 12/9;
+    width: 70%;
+    height: auto;
+}
+
+.colContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-block-medium);
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--padding-block-small) / 3);
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.saleText {
+    font-size: var(--font-size-xsmall);
+    font-weight: bold;
+    color: white;
+    background-color: rgb(78, 78, 219);
+    padding-block: calc(var(--padding-block-small) / 2);
+    padding-inline-start: calc(var(--padding-block-small) / 2);
+    padding-inline-end: var(--padding-inline-medium);
+}
+
+.title {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+}
+
+.price {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+}
+
+.starsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.star {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.star svg {
+    fill: gold;
+    height: 100%;
+    width: 100%;
+}
+
+.description {
+    font-size: var(--font-size-small);
+    color: rgb(129, 129, 129);
+}
+
+.rowContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-medium);
+    flex-wrap: wrap;
+}
+
+.numberSelector {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.minus {
+    font-size: var(--font-size-medium);
+    border-top-left-radius: var(--border-radius-xsmall);
+    border-bottom-left-radius: var(--border-radius-xsmall);
+    width: 2.5rem;
+    padding-block: calc(var(--padding-block-small) / 2);
+    border: 1px solid lightgrey;
+    cursor: pointer;
+}
+
+.plus {
+    font-size: var(--font-size-medium);
+    border-top-right-radius: var(--border-radius-xsmall);
+    border-bottom-right-radius: var(--border-radius-xsmall);
+    width: 2.5rem;
+    padding-block: calc(var(--padding-block-small) / 2);
+    border: 1px solid lightgrey;
+    cursor: pointer;
+}
+
+.number {
+    font-size: var(--font-size-medium);
+    width: 2rem;
+    padding-block: calc(var(--padding-block-small) / 2);
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    text-align: center;
+}
+
+/* add media query for cursors */
+
+.minus:hover {
+    background-color: lightgrey;
+}
+
+.plus:hover {
+    background-color: lightgrey;
+}
+
+.buyButton {
+    background-color: rgb(78, 78, 219);
+    color: white;
+    font-size: var(--font-size-small);
+    font-weight: bold;
+    border-radius: var(--border-radius-xsmall);
+    padding-inline: var(--padding-inline-medium);
+    padding-block: var(--padding-block-small);
+    cursor: pointer;
+    border: none;
+}
+
+.buyButton:hover {
+    background-color: rgb(78, 78, 219, 0.8);
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .imageContainer {
+        width: 50%;
+        height: 100%;
+    }
+
+    .image {
+        aspect-ratio: 12/9;
+        width: 80%;
+        height: auto;
+    }
+
+    .colContainer {
+        width: 50%;
+    }
+}

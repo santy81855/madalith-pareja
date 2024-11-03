@@ -1,0 +1,10 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: calc(100% - var(--nav-height));
+    overflow-y: auto;
+    padding-inline: var(--padding-inline-x2large);
+    gap: var(--padding-block-x2large);
+}

@@ -1,0 +1,157 @@
+.pictureSection {
+    aspect-ratio: 14/9;
+    width: 100%;
+    max-height: 400px;
+    height: auto;
+    min-height: 300px;
+    overflow: hidden;
+    position: relative;
+    max-width: var(--max-width-small);
+}
+
+.textSectionLeft {
+    position: absolute;
+    bottom: var(--padding-block-large);
+    left: 0;
+    width: 45%;
+    height: fit-content;
+    background-color: rgb(var(--background-color-rgb));
+    z-index: 1;
+    padding-block: var(--padding-block-large);
+    padding-inline: var(--padding-inline-large);
+}
+
+.textSectionRight {
+    position: absolute;
+    bottom: var(--padding-block-large);
+    right: 0;
+    width: 45%;
+    height: fit-content;
+    background-color: rgb(var(--background-color-rgb));
+    z-index: 1;
+    padding-block: var(--padding-block-large);
+    padding-inline: var(--padding-inline-large);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-block-small);
+}
+
+.title {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+}
+
+.description {
+    font-size: var(--font-size-small);
+}
+
+.imageLeft {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    left: 0;
+    /*center the image and make it fit*/
+}
+
+.imageRight {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    right: 0;
+    /*center the image and make it fit*/
+}
+
+.imageSectionLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    background-color: #f2ded0;
+}
+
+.imageSectionRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    background-color: #f2ded0;
+}
+
+.innerImageLeft {
+    position: absolute;
+    top: 50%;
+    left: var(--padding-block-large);
+    transform: translate(0, -50%);
+    aspect-ratio: 16/12;
+    width: 50%;
+    max-width: 250px;
+    height: auto;
+    z-index: 1;
+}
+
+.imageBackdrop {
+    position: absolute;
+    top: calc(50% + 10px);
+    left: calc(var(--padding-block-large) + 10px);
+    transform: translate(0, -50%);
+    aspect-ratio: 16/12;
+    width: 50%;
+    max-width: 250px;
+    height: auto;
+    z-index: 0;
+    background-color: #fff956;
+}
+
+@media (max-width: 680px) {
+    .innerImageLeft {
+        width: 80%;
+    }
+
+    .imageBackdrop {
+        width: 80%;
+    }
+
+    .pictureSection {
+        margin-block-start: var(--padding-block-large);
+        overflow: unset;
+    }
+    .textSectionLeft {
+        width: 90%;
+        top: -2em;
+        padding-block: var(--padding-block-medium);
+    }
+    .textSectionRight {
+        width: 90%;
+        top: -2em;
+        padding-block: var(--padding-block-medium);
+    }
+    .imageSectionLeft {
+        width: 100%;
+    }
+    .imageSectionRight {
+        width: 100%;
+    }
+    .imageLeft {
+        width: 100%;
+    }
+    .imageRight {
+        width: 100%;
+    }
+    .title {
+        font-size: var(--font-size-medium);
+    }
+    .description {
+        font-size: var(--font-size-xsmall);
+    }
+}

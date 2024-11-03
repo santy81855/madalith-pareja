@@ -1,0 +1,113 @@
+.projectsContainer {
+    padding-block: var(--padding-block-medium);
+    padding-inline: var(--padding-inline-large);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+.title {
+    font-size: var(--font-size-x2large);
+}
+
+.quote {
+    font-size: var(--font-size-medium);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-medium);
+    width: 100%;
+    margin-block-start: var(--padding-block-large);
+}
+
+.card {
+    background-color: transparent;
+    padding: var(--padding-block-large);
+    border: 1px solid rgb(var(--accent-color-light-rgb));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
+    color: rgb(var(--text-color-rgb));
+    aspect-ratio: 16/9;
+}
+
+.mobileCard {
+    display: none;
+}
+
+.missionCard {
+    background-color: rgb(var(--accent-color-light-rgb));
+    padding: var(--padding-block-large);
+    border: 1px solid rgb(var(--accent-color-light-rgb));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
+    color: white;
+    aspect-ratio: 16/9;
+}
+
+.imageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobileImage {
+    display: none;
+}
+
+@media (max-width: 2500px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        display: none;
+        aspect-ratio: unset;
+    }
+
+    .mobileCard {
+        background-color: transparent;
+        padding: var(--padding-block-large);
+        border: 1px solid rgb(var(--accent-color-light-rgb));
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-medium);
+        color: rgb(var(--text-color-rgb));
+    }
+
+    .missionCard {
+        display: none;
+        aspect-ratio: unset;
+        grid-column: span 1;
+        background-color: transparent;
+        color: rgb(var(--text-color-rgb));
+    }
+
+    .mobileImage {
+        display: block;
+    }
+
+    .desktopImage {
+        display: none;
+    }
+}
