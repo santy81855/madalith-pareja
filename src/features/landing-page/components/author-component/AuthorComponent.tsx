@@ -21,7 +21,7 @@ const AuthorComponent = ({
                     alt="author"
                     width={3024}
                     height={4032}
-                    quality={100}
+                    quality={40}
                     priority
                 />
             </section>
