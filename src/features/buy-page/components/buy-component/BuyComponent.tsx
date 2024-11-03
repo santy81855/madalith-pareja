@@ -1,5 +1,6 @@
 import styles from "./BuyComponent.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import { starIcon } from "@/lib/Icons";
 
 const BuyComponent = () => {
@@ -46,7 +47,12 @@ const BuyComponent = () => {
                         <p className={styles.number}>1</p>
                         <button className={styles.plus}>+</button>
                     </section>
-                    <button className={styles.buyButton}>Buy Now</button>
+                    <Link
+                        href="https://buy.stripe.com/5kA7uodie1X20qAfYY"
+                        className={styles.buyButton}
+                    >
+                        Buy Now
+                    </Link>
                 </section>
             </section>
         </section>
