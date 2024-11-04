@@ -12,5 +12,6 @@
 @media (max-width: 680px) {
     .page {
         padding-inline: var(--padding-inline-large);
+        gap: var(--padding-block-xlarge);
     }
 }

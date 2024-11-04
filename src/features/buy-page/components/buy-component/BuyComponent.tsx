@@ -4,6 +4,14 @@ import Link from "next/link";
 import { starIcon } from "@/lib/Icons";
 
 const BuyComponent = () => {
+    const quantitySelector = (
+        <section className={styles.numberSelector}>
+            <button className={styles.minus}>-</button>
+            <p className={styles.number}>1</p>
+            <button className={styles.plus}>+</button>
+        </section>
+    );
+
     return (
         <section className={styles.container}>
             <section className={styles.imageContainer}>
@@ -42,11 +50,6 @@ const BuyComponent = () => {
                     fermentum, lectus nisi suscipit, ac suscipit.
                 </p>
                 <section className={styles.rowContainer}>
-                    <section className={styles.numberSelector}>
-                        <button className={styles.minus}>-</button>
-                        <p className={styles.number}>1</p>
-                        <button className={styles.plus}>+</button>
-                    </section>
                     <Link
                         href="https://buy.stripe.com/5kA7uodie1X20qAfYY"
                         className={styles.buyButton}

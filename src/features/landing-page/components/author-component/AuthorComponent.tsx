@@ -50,7 +50,6 @@ const AuthorComponent = ({
                     >
                         Read More
                     </button>
-                    <button className={styles.button}>Contact</button>
                 </section>
             </section>
         </section>

@@ -51,40 +51,6 @@ const Nav = ({ styleProp }: navProps) => {
                                 </p>
                             </Link>
                             <Link
-                                href="/about"
-                                className={styles.hamLink}
-                                onClick={() => {
-                                    setOpen(false);
-                                }}
-                            >
-                                <p
-                                    className={`${styles.hamNavLink} ${
-                                        path.includes("works")
-                                            ? styles.active
-                                            : styles.inactive
-                                    }`}
-                                >
-                                    About
-                                </p>
-                            </Link>
-                            <Link
-                                href="/contact"
-                                className={styles.hamLink}
-                                onClick={() => {
-                                    setOpen(false);
-                                }}
-                            >
-                                <p
-                                    className={`${styles.hamNavLink} ${
-                                        path.includes("contact")
-                                            ? styles.active
-                                            : styles.inactive
-                                    }`}
-                                >
-                                    Contact
-                                </p>
-                            </Link>
-                            <Link
                                 href="/buy"
                                 className={styles.hamNavButton}
                                 onClick={() => {
@@ -107,28 +73,6 @@ const Nav = ({ styleProp }: navProps) => {
                             }`}
                         >
                             Home
-                        </p>
-                    </Link>
-                    <Link href="/about">
-                        <p
-                            className={`${styles.navLink} ${
-                                path.includes("about")
-                                    ? styles.active
-                                    : styles.inactive
-                            }`}
-                        >
-                            About
-                        </p>
-                    </Link>
-                    <Link href="/contact">
-                        <p
-                            className={`${styles.navLink} ${
-                                path.includes("contact")
-                                    ? styles.active
-                                    : styles.inactive
-                            }`}
-                        >
-                            Contact
                         </p>
                     </Link>
                     <Link href="/buy" className={styles.navButton}>
