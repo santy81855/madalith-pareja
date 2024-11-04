@@ -21,7 +21,8 @@ const BuyComponent = () => {
                     alt="book cover"
                     width={400}
                     height={600}
-                    quality={100}
+                    quality={70}
+                    priority
                 />
             </section>
             <section className={styles.colContainer}>
