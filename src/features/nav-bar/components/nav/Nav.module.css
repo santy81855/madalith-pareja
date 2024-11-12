@@ -68,7 +68,7 @@
 }
 
 .navButton {
-    background-color: black;
+    background-color: rgb(var(--accent-color-light-rgb));
     color: white;
     padding-inline: var(--padding-inline-xlarge);
     padding-block: var(--padding-block-small);
@@ -110,7 +110,7 @@
 }
 
 .hamNavButton {
-    background-color: black;
+    background-color: rgb(var(--accent-color-light-rgb));
     color: white;
     padding-inline: var(--padding-inline-large);
     padding-block: var(--padding-block-medium);

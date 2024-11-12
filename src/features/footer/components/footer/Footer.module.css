@@ -14,7 +14,7 @@
     gap: var(--gap-large);
     justify-content: center;
     align-items: center;
-    color: rgb(var(--text-color-rgb));
+    color: white;
 }
 
 .footerTitle {

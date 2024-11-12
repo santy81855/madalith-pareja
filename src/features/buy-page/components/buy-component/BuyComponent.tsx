@@ -39,16 +39,18 @@ const BuyComponent = () => {
                     <div className={styles.star}>{starIcon}</div>
                 </section>
                 <p className={styles.description}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus lacinia odio vitae vestibulum vestibulum. Cras
-                    vehicula, libero sit amet fermentum, lectus nisi suscipit,
-                    ac suscipit. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Vivamus lacinia odio vitae vestibulum
-                    vestibulum. Cras vehicula, libero sit amet fermentum, lectus
-                    nisi suscipit, ac suscipit. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Vivamus lacinia odio vitae
-                    vestibulum vestibulum. Cras vehicula, libero sit amet
-                    fermentum, lectus nisi suscipit, ac suscipit.
+                    Art for Everyone es una cartilla que puede abrirse en un
+                    ángulo de 180 grados. Esta parte es importante, ya que
+                    encontrarás dos idiomas en ella: inglés y español. La
+                    cartilla contiene un proceso absolutamente comprobado en
+                    muchísimas personas de que funciona y no tiene una edad
+                    específica. Obviamente, necesitarás dedicación, esfuerzo y
+                    perseverancia. En Art for Everyone encontrarás, además, todo
+                    lo necesario para llevar a cabo cada uno de los ejercicios
+                    propuestos. Esto incluye un lápiz 6B, un lápiz HB, 4 colores
+                    de doble punta, un borrador y 10 hojas al final de la
+                    cartilla de papel especial para que todo tu esfuerzo se vea
+                    reflejado de la mejor manera.
                 </p>
                 <section className={styles.rowContainer}>
                     <Link

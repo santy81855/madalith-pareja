@@ -33,13 +33,13 @@ const AuthorComponent = ({
                 <p className={styles.description}>{description}</p>
                 <section className={styles.rowContainer}>
                     <section className={styles.colContainer}>
-                        <p className={styles.colTitle}>20+</p>
+                        <p className={styles.colTitle}>35+</p>
                         <p className={styles.colText}>Years as an artist</p>
                     </section>
                     <div className={styles.verticalDivider}></div>
                     <section className={styles.colContainer}>
-                        <p className={styles.colTitle}>20+</p>
-                        <p className={styles.colText}>Years as an artist</p>
+                        <p className={styles.colTitle}>25+</p>
+                        <p className={styles.colText}>Years as a teacher</p>
                     </section>
                 </section>
                 <section
