@@ -90,7 +90,7 @@ const Nav = ({ styleProp }: navProps) => {
                         </Link>
                         <section className={styles.languageToggle}>
                             <p>
-                                {language === "spanish" ? "English" : "English"}
+                                {language === "spanish" ? "Spanish" : "Spanish"}
                             </p>
                             <Toggle
                                 defaultChecked={language === "spanish"}
@@ -101,7 +101,7 @@ const Nav = ({ styleProp }: navProps) => {
                                 onChange={handleToggleChange}
                             />
                             <p>
-                                {language === "english" ? "Spanish" : "Spanish"}
+                                {language === "english" ? "English" : "English"}
                             </p>
                         </section>
                     </motion.div>
@@ -131,8 +131,8 @@ const Nav = ({ styleProp }: navProps) => {
                                 <section className={styles.languageToggle}>
                                     <p>
                                         {language === "spanish"
-                                            ? "English"
-                                            : "English"}
+                                            ? "Spanish"
+                                            : "Spanish"}
                                     </p>
                                     <Toggle
                                         defaultChecked={language === "spanish"}
@@ -144,8 +144,8 @@ const Nav = ({ styleProp }: navProps) => {
                                     />
                                     <p>
                                         {language === "english"
-                                            ? "Spanish"
-                                            : "Spanish"}
+                                            ? "English"
+                                            : "English"}
                                     </p>
                                 </section>
                             </section>
