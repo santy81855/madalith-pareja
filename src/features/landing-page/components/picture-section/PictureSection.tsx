@@ -38,7 +38,7 @@ const PictureSection = ({
                         alt="image"
                         width={1500}
                         height={500}
-                        quality={100}
+                        quality={80}
                         priority
                     />
                 </section>

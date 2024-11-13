@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Nav } from "../features/nav-bar";
 import styles from "./layout.module.css";
+import LanguageProvider from "./providers";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -29,10 +30,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
-                <div className={styles.pageLayout}>
-                    <Nav styleProp={{ backgroundColor: "white" }} />
-                    {children}
-                </div>
+                <LanguageProvider>
+                    <div className={styles.pageLayout}>
+                        <Nav styleProp={{ backgroundColor: "white" }} />
+                        {children}
+                    </div>
+                </LanguageProvider>
             </body>
         </html>
     );

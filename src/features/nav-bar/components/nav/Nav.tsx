@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Hamburger from "hamburger-react";
 import { useState } from "react";
+import { useLanguage } from "@/app/providers";
+import Toggle from "react-toggle";
+import "@/lib/toggle.css";
 
 type navProps = {
     styleProp?: object;
@@ -13,6 +16,16 @@ type navProps = {
 const Nav = ({ styleProp }: navProps) => {
     const path = usePathname();
     const [isOpen, setOpen] = useState(false);
+    const [languageIsOpen, setLanguageIsOpen] = useState(true);
+    const { language, setLanguage } = useLanguage();
+
+    const handleToggleChange = () => {
+        if (language === "english") {
+            setLanguage("spanish");
+        } else {
+            setLanguage("english");
+        }
+    };
 
     return (
         <nav className={styles.navContainer} style={styleProp ? styleProp : {}}>
@@ -47,7 +60,7 @@ const Nav = ({ styleProp }: navProps) => {
                                             : styles.inactive
                                     }`}
                                 >
-                                    Home
+                                    {language === "english" ? "Home" : "Inicio"}
                                 </p>
                             </Link>
                             <Link
@@ -57,12 +70,33 @@ const Nav = ({ styleProp }: navProps) => {
                                     setOpen(false);
                                 }}
                             >
-                                <p>Buy</p>
+                                <p>
+                                    {language === "english" ? "Buy" : "Comprar"}
+                                </p>
                             </Link>
+                            <section className={styles.languageToggle}>
+                                <p>
+                                    {language === "spanish"
+                                        ? "English"
+                                        : "English"}
+                                </p>
+                                <Toggle
+                                    defaultChecked={language === "spanish"}
+                                    icons={{
+                                        checked: null,
+                                        unchecked: null,
+                                    }}
+                                    onChange={handleToggleChange}
+                                />
+                                <p>
+                                    {language === "english"
+                                        ? "Spanish"
+                                        : "Spanish"}
+                                </p>
+                            </section>
                         </section>
                     )}
                 </section>
-
                 <div className={styles.navItem}>
                     <Link href="/">
                         <p
@@ -72,12 +106,42 @@ const Nav = ({ styleProp }: navProps) => {
                                     : styles.inactive
                             }`}
                         >
-                            Home
+                            {language === "english" ? "Home" : "Inicio"}
                         </p>
                     </Link>
                     <Link href="/buy" className={styles.navButton}>
-                        <p>Buy</p>
+                        <p>{language === "english" ? "Buy" : "Comprar"}</p>
                     </Link>
+                    <section className={styles.languageMenuContainer}>
+                        <Hamburger
+                            toggled={languageIsOpen}
+                            toggle={setLanguageIsOpen}
+                        />
+                        {languageIsOpen && (
+                            <section className={styles.languageMenu}>
+                                <section className={styles.languageToggle}>
+                                    <p>
+                                        {language === "spanish"
+                                            ? "English"
+                                            : "English"}
+                                    </p>
+                                    <Toggle
+                                        defaultChecked={language === "spanish"}
+                                        icons={{
+                                            checked: null,
+                                            unchecked: null,
+                                        }}
+                                        onChange={handleToggleChange}
+                                    />
+                                    <p>
+                                        {language === "english"
+                                            ? "Spanish"
+                                            : "Spanish"}
+                                    </p>
+                                </section>
+                            </section>
+                        )}
+                    </section>
                 </div>
             </section>
         </nav>

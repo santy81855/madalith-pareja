@@ -13,7 +13,6 @@ const Footer = ({ style }: FooterProps) => {
                 <p className={styles.footerTitle}>
                     © {currentYear} Madalith Pareja
                 </p>
-                <p>Contact</p>
                 <p>Madalithpareja@yahoo.es</p>
                 <p>770-789-7611</p>
             </div>

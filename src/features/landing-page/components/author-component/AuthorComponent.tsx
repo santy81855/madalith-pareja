@@ -1,5 +1,7 @@
+"use client";
 import styles from "./AuthorComponent.module.css";
 import Image from "next/image";
+import { useLanguage } from "@/app/providers";
 
 type AuthorComponentProps = {
     name: string;
@@ -12,6 +14,7 @@ const AuthorComponent = ({
     description,
     image,
 }: AuthorComponentProps) => {
+    const { language } = useLanguage();
     return (
         <section className={styles.authorComponent}>
             <section className={styles.imageContainer}>
@@ -27,19 +30,31 @@ const AuthorComponent = ({
             </section>
             <section className={styles.textContainer}>
                 <section className={styles.titleContainer}>
-                    <p className={styles.title}>Meet the author</p>
+                    <p className={styles.title}>
+                        {language === "english"
+                            ? "Meet the author"
+                            : "Conoce al autor"}
+                    </p>
                     <p className={styles.name}>{name}</p>
                 </section>
                 <p className={styles.description}>{description}</p>
                 <section className={styles.rowContainer}>
                     <section className={styles.colContainer}>
                         <p className={styles.colTitle}>35+</p>
-                        <p className={styles.colText}>Years as an artist</p>
+                        <p className={styles.colText}>
+                            {language === "english"
+                                ? "Years as an artist"
+                                : "Años como artista"}
+                        </p>
                     </section>
                     <div className={styles.verticalDivider}></div>
                     <section className={styles.colContainer}>
                         <p className={styles.colTitle}>25+</p>
-                        <p className={styles.colText}>Years as a teacher</p>
+                        <p className={styles.colText}>
+                            {language === "english"
+                                ? "Years teaching"
+                                : "Años enseñando"}
+                        </p>
                     </section>
                 </section>
                 <section
@@ -48,7 +63,7 @@ const AuthorComponent = ({
                     <button
                         className={`${styles.buttonSpecial} ${styles.button}`}
                     >
-                        Read More
+                        {language === "english" ? "Read More" : "Leer Más"}
                     </button>
                 </section>
             </section>
