@@ -11,7 +11,7 @@ export const LanguageContext = createContext({
 
 const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
     const [language, setLanguage] = useState(
-        window.localStorage.getItem("language") || "english"
+        window?.localStorage.getItem("language") || "english"
     );
 
     useEffect(() => {
