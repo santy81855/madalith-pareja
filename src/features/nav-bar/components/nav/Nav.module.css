@@ -102,7 +102,7 @@
     font-size: var(--font-size-xlarge);
     width: 100%;
 
-    color: rgb(var(--text-color-rgb));
+    color: white;
 }
 
 .hamNavLink:hover {
@@ -110,8 +110,8 @@
 }
 
 .hamNavButton {
-    background-color: rgb(var(--accent-color-light-rgb));
-    color: white;
+    background-color: white;
+    color: rgb(var(--text-color-rgb));
     padding-inline: var(--padding-inline-large);
     padding-block: var(--padding-block-medium);
     width: 100%;
@@ -158,6 +158,36 @@
     width: min(20em, 80vw);
     background-color: white;
     right: 0;
+}
+
+.slideOutMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: rgb(var(--accent-color-light-rgb));
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 199;
+    padding-inline: var(--padding-inline-large);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: var(--gap-medium);
+    color: white;
+}
+
+.closeButton {
+    font-size: var(--font-size-xlarge);
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-block-start: var(--padding-block-xlarge);
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {

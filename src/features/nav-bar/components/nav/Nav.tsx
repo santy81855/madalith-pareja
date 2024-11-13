@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useLanguage } from "@/app/providers";
 import Toggle from "react-toggle";
 import "@/lib/toggle.css";
+import { motion } from "framer-motion";
 
 type navProps = {
     styleProp?: object;
@@ -44,58 +45,66 @@ const Nav = ({ styleProp }: navProps) => {
 
                 <section className={styles.hamburgerMenuContainer}>
                     <Hamburger toggled={isOpen} toggle={setOpen} />
-                    {isOpen && (
-                        <section className={styles.hamburgerMenu}>
-                            <Link
-                                href="/"
-                                className={styles.hamLink}
-                                onClick={() => {
-                                    setOpen(false);
-                                }}
+                    <motion.div
+                        className={styles.slideOutMenu}
+                        initial={{ x: "100%" }}
+                        animate={{ x: isOpen ? "0%" : "100%" }}
+                        exit={{ x: "100%" }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 100,
+                            damping: 20,
+                        }}
+                    >
+                        <button
+                            className={styles.closeButton}
+                            onClick={() => setOpen(false)}
+                        >
+                            X
+                        </button>
+                        <Link
+                            href="/"
+                            className={styles.hamLink}
+                            onClick={() => {
+                                setOpen(false);
+                            }}
+                        >
+                            <p
+                                className={`${styles.hamNavLink} ${
+                                    path.length === 1
+                                        ? styles.active
+                                        : styles.inactive
+                                }`}
                             >
-                                <p
-                                    className={`${styles.hamNavLink} ${
-                                        path.length === 1
-                                            ? styles.active
-                                            : styles.inactive
-                                    }`}
-                                >
-                                    {language === "english" ? "Home" : "Inicio"}
-                                </p>
-                            </Link>
-                            <Link
-                                href="/buy"
-                                className={styles.hamNavButton}
-                                onClick={() => {
-                                    setOpen(false);
+                                {language === "english" ? "Home" : "Inicio"}
+                            </p>
+                        </Link>
+                        <Link
+                            href="/buy"
+                            className={styles.hamNavButton}
+                            onClick={() => {
+                                setOpen(false);
+                            }}
+                        >
+                            <p>{language === "english" ? "Buy" : "Comprar"}</p>
+                        </Link>
+                        <section className={styles.languageToggle}>
+                            <p>
+                                {language === "spanish" ? "English" : "English"}
+                            </p>
+                            <Toggle
+                                defaultChecked={language === "spanish"}
+                                icons={{
+                                    checked: null,
+                                    unchecked: null,
                                 }}
-                            >
-                                <p>
-                                    {language === "english" ? "Buy" : "Comprar"}
-                                </p>
-                            </Link>
-                            <section className={styles.languageToggle}>
-                                <p>
-                                    {language === "spanish"
-                                        ? "English"
-                                        : "English"}
-                                </p>
-                                <Toggle
-                                    defaultChecked={language === "spanish"}
-                                    icons={{
-                                        checked: null,
-                                        unchecked: null,
-                                    }}
-                                    onChange={handleToggleChange}
-                                />
-                                <p>
-                                    {language === "english"
-                                        ? "Spanish"
-                                        : "Spanish"}
-                                </p>
-                            </section>
+                                onChange={handleToggleChange}
+                            />
+                            <p>
+                                {language === "english" ? "Spanish" : "Spanish"}
+                            </p>
                         </section>
-                    )}
+                    </motion.div>
                 </section>
                 <div className={styles.navItem}>
                     <Link href="/">
