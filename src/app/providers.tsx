@@ -4,11 +4,15 @@ import { createContext, useState, useEffect, useContext } from "react";
 
 export const LanguageContext = createContext({
     language: "english",
-    setLanguage: (language: string) => {},
+    setLanguage: (language: string) => {
+        console.log("language", language);
+    },
 });
 
 const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-    const [language, setLanguage] = useState("english");
+    const [language, setLanguage] = useState(
+        window.localStorage.getItem("language") || "english"
+    );
 
     useEffect(() => {
         const storedLanguage = window.localStorage.getItem("language");
