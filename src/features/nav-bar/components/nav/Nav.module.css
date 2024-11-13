@@ -64,7 +64,7 @@
 }
 
 .inactive:hover {
-    color: rgb(var(--accent-color-light-rgb));
+    text-decoration: underline;
 }
 
 .navButton {
