@@ -3,24 +3,30 @@
 import { createContext, useState, useEffect, useContext } from "react";
 
 export const LanguageContext = createContext({
-    language: "english",
+    language: "english" as string | null,
     setLanguage: (language: string) => {
         console.log("language", language);
     },
 });
 
 const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-    const [language, setLanguage] = useState("english");
+    const [language, setLanguage] = useState<string | null>(null);
 
     useEffect(() => {
-        const storedLanguage = window.localStorage.getItem("language");
-        if (storedLanguage) {
-            setLanguage(storedLanguage);
+        if (typeof window !== "undefined") {
+            const storedLanguage = localStorage.getItem("language");
+            if (storedLanguage) {
+                setLanguage(storedLanguage);
+            } else {
+                setLanguage("english");
+            }
         }
     }, []);
 
     useEffect(() => {
-        window.localStorage.setItem("language", language);
+        if (typeof window !== "undefined" && language) {
+            localStorage.setItem("language", language);
+        }
     }, [language]);
 
     return (

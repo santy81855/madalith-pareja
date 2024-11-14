@@ -1,0 +1,208 @@
+.reviewContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.4/1;
+    height: auto;
+    max-width: 600px;
+    perspective: "1000px";
+}
+
+.review {
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    top: 10%;
+    aspect-ratio: 1.2/1;
+    height: auto;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.imageContainer {
+    width: 30%;
+    aspect-ratio: 1/1.4;
+    position: relative;
+    overflow: visible;
+    background-color: white;
+    border-radius: var(--border-radius-xsmall);
+    padding-inline: var(--padding-inline-small);
+    padding-block: var(--padding-block-small);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--padding-block-small);
+}
+
+.backSplash {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 120%;
+    background-color: white;
+    border-radius: var(--border-radius-small);
+}
+
+.image {
+    width: 90%;
+    aspect-ratio: 1/1;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.name {
+    font-size: var(--font-size-small);
+    font-weight: bold;
+}
+
+.textContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    gap: var(--padding-block-small);
+    padding-block: var(--padding-block-small);
+}
+
+.horLine {
+    width: 100%;
+    height: 7px;
+    background-color: white;
+}
+
+.reviewTitle {
+    color: white;
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+    padding-inline: var(--padding-inline-small);
+    /* make the letters slightly further apart */
+    letter-spacing: 0.1em;
+    margin-block-end: var(--padding-block-medium);
+}
+
+.reviewTextContainer {
+    margin-block-start: var(--padding-block-small);
+    position: relative;
+    width: 100%;
+
+    margin-inline-start: calc(1 * var(--padding-inline-small));
+}
+
+.reviewTextContainer p:before {
+    content: "\201C";
+    font-weight: bold;
+    font-size: 3rem;
+    color: rgba(0, 0, 0, 0.174);
+    position: absolute;
+    top: calc(-4 * var(--padding-block-small));
+    left: calc(-0.2 * var(--padding-block-small));
+    font-family: "Playfair Display SC", serif;
+}
+.reviewTextContainer p:after {
+    content: "\201D";
+    font-weight: bold;
+    font-size: 3rem;
+    color: rgba(0, 0, 0, 0.174);
+    position: absolute;
+    bottom: calc(-6 * var(--padding-block-small));
+    right: calc(-0.2 * var(--padding-block-small));
+    font-family: "Playfair Display SC", serif;
+}
+
+.text {
+    font-size: var(--font-size-xsmall);
+    color: white;
+    line-height: 1.1;
+}
+
+.starsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.star {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.star svg {
+    fill: gold;
+    height: 100%;
+    width: 100%;
+}
+
+.buttonLeft {
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-25%);
+    z-index: 99;
+    font-size: var(--font-size-x3large);
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.buttonRight {
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-25%);
+    z-index: 99;
+    font-size: var(--font-size-x3large);
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 350px) {
+    .reviewTitle {
+        display: none;
+    }
+    .horLine {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .reviewTitle {
+        font-size: var(--font-size-small);
+        margin-block-end: calc(0.5 * var(--padding-block-small));
+    }
+    .reviewTextContainer p:before {
+        content: "\201C";
+        font-weight: bold;
+        font-size: 2rem;
+        color: rgba(0, 0, 0, 0.174);
+        position: absolute;
+        top: calc(-2.5 * var(--padding-block-small));
+        left: calc(-0.2 * var(--padding-block-small));
+        font-family: "Playfair Display SC", serif;
+    }
+    .reviewTextContainer p:after {
+        content: "\201D";
+        font-weight: bold;
+        font-size: 2rem;
+        color: rgba(0, 0, 0, 0.174);
+        position: absolute;
+        bottom: calc(-4 * var(--padding-block-small));
+        right: calc(-0.2 * var(--padding-block-small));
+        font-family: "Playfair Display SC", serif;
+    }
+    .horLine {
+        height: 4px;
+    }
+}

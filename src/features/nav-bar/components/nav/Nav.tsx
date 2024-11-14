@@ -93,12 +93,13 @@ const Nav = ({ styleProp }: navProps) => {
                                 {language === "spanish" ? "Spanish" : "Spanish"}
                             </p>
                             <Toggle
-                                defaultChecked={language === "spanish"}
+                                defaultChecked={language === "english"}
                                 icons={{
                                     checked: null,
                                     unchecked: null,
                                 }}
                                 onChange={handleToggleChange}
+                                checked={language === "english"}
                             />
                             <p>
                                 {language === "english" ? "English" : "English"}
@@ -135,7 +136,7 @@ const Nav = ({ styleProp }: navProps) => {
                                             : "Spanish"}
                                     </p>
                                     <Toggle
-                                        defaultChecked={language === "spanish"}
+                                        defaultChecked={language === "english"}
                                         icons={{
                                             checked: null,
                                             unchecked: null,
