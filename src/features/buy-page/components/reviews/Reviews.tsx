@@ -76,6 +76,12 @@ const Reviews = ({ reviews }: ReviewsProps) => {
 
     return (
         <div className={styles.reviewContainer}>
+            <p
+                className={styles.heading}
+                style={{ color: colorArray[currentIndex] }}
+            >
+                {language === "english" ? "Reviews" : "Comentarios"}
+            </p>
             <AnimatePresence initial={false}>
                 {reviews.map((review, index) => (
                     <motion.div

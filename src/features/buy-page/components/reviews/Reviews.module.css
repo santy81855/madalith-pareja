@@ -1,3 +1,11 @@
+.heading {
+    font-size: var(--font-size-xlarge);
+    font-weight: bold;
+    margin-block-end: var(--padding-block-medium);
+    text-align: center;
+    margin-block-start: -2em;
+}
+
 .reviewContainer {
     position: relative;
     width: 100%;
