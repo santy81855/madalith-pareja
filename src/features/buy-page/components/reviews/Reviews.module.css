@@ -6,6 +6,30 @@
     margin-block-start: -2em;
 }
 
+.circleButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding-inline-medium);
+    position: relative;
+    top: 100%;
+    margin-block-start: 3em;
+}
+
+.circleButtons button {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    border: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.activeCircle {
+    transform: scale(1.4);
+}
+
 .reviewContainer {
     position: relative;
     width: 100%;

@@ -27,12 +27,13 @@ const Reviews = ({ reviews }: ReviewsProps) => {
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
     };
-
+    /*
     const prevSlide = () => {
         setCurrentIndex(
             (prevIndex) => (prevIndex - 1 + reviews.length) % reviews.length
         );
     };
+    */
 
     const colorArray = ["#ffd400", "#fe7e0f", "	#8e3ccb", "	#00ffd2"];
 
@@ -137,7 +138,21 @@ const Reviews = ({ reviews }: ReviewsProps) => {
                     </motion.div>
                 ))}
             </AnimatePresence>
-            {/* Navigation buttons */}
+            <section className={styles.circleButtons}>
+                {reviews.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={
+                            index === currentIndex
+                                ? styles.activeCircle
+                                : styles.inactiveCircle
+                        }
+                        style={{ backgroundColor: colorArray[index] }}
+                    ></button>
+                ))}
+            </section>
+            {/* Navigation buttons 
             <button
                 onClick={prevSlide}
                 className={styles.buttonLeft}
@@ -152,6 +167,7 @@ const Reviews = ({ reviews }: ReviewsProps) => {
             >
                 &gt;
             </button>
+            */}
         </div>
     );
 };

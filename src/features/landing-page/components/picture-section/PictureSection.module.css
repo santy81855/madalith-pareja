@@ -148,10 +148,4 @@
     .imageRight {
         width: 100%;
     }
-    .title {
-        font-size: var(--font-size-medium);
-    }
-    .description {
-        font-size: var(--font-size-xsmall);
-    }
 }
