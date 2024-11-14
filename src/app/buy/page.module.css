@@ -7,6 +7,7 @@
     overflow-y: auto;
     padding-inline: var(--padding-inline-x2large);
     gap: var(--padding-block-x2large);
+    overflow-x: hidden;
 }
 
 @media (max-width: 680px) {
