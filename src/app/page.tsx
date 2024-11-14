@@ -1,13 +1,17 @@
 "use client";
 import styles from "./page.module.css";
-import { PictureSection, AuthorComponent } from "@/features/landing-page";
+import {
+    PictureSection,
+    AuthorComponent,
+    PortraitPhoto,
+} from "@/features/landing-page";
 import { Footer } from "@/features/footer";
 import { useLanguage } from "@/app/providers";
 
 export default function Home() {
     const { language } = useLanguage();
     return (
-        <main className={styles.page}>
+        <main className={styles.page} id="landing-page">
             <PictureSection
                 title={
                     language === "english"
@@ -32,6 +36,19 @@ export default function Home() {
                         : "El secreto está en educar la mano y la buena observación."
                 }
                 image="/images/landing-page/black-and-white-background.jpg"
+            />
+            <PortraitPhoto
+                title={
+                    language === "english"
+                        ? "Learn About the Colors"
+                        : "Aprende Sobre Colores"
+                }
+                text={
+                    language === "english"
+                        ? "Learn how to draw a still life and how to mix colors or create an art piece using only a single color."
+                        : "Aprende a dibujar un bodegón y a mezclar colores o a crear una obra de arte utilizando un solo color."
+                }
+                image="/images/landing-page/bodegon.jpeg"
             />
             <AuthorComponent
                 name="Madalith Pareja"
