@@ -17,7 +17,7 @@ type navProps = {
 const Nav = ({ styleProp }: navProps) => {
     const path = usePathname();
     const [isOpen, setOpen] = useState(false);
-    const [languageIsOpen, setLanguageIsOpen] = useState(true);
+    const [languageIsOpen, setLanguageIsOpen] = useState(false);
     const { language, setLanguage } = useLanguage();
 
     const handleToggleChange = () => {
