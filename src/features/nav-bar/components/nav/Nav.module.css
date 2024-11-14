@@ -18,7 +18,7 @@
     justify-content: space-between;
     align-items: center;
     padding-inline: var(--padding-inline-large);
-    max-width: var(--max-width);
+    max-width: var(--max-width-small);
 }
 
 .logoContainer {
@@ -32,7 +32,7 @@
 .logo {
     height: 50%;
     width: 50%;
-    margin-inline-start: calc(-1 * var(--padding-inline-large));
+    margin-inline-start: calc(-3 * var(--padding-inline-large));
 }
 
 .companyName {
@@ -225,19 +225,21 @@
     }
 
     .languageToggle {
-        margin-block-start: var(--padding-block-large);
+        margin-block-start: auto;
+        padding-block-end: var(--padding-block-large);
     }
 
     .languageMenuContainer {
         display: none;
     }
+
     .navContainer {
         padding-block: calc(var(--padding-block-medium) * 1);
         padding-inline: 0;
     }
 
     .logo {
-        margin-inline-start: calc(-1 * var(--padding-block-xlarge));
+        margin-inline-start: calc(-1.5 * var(--padding-block-xlarge));
         height: 40%;
         width: 40%;
     }

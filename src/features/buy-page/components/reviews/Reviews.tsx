@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Reviews.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -17,6 +17,12 @@ type ReviewsProps = {
 const Reviews = ({ reviews }: ReviewsProps) => {
     const { language } = useLanguage();
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Auto-rotate every 5 seconds
+    useEffect(() => {
+        const interval = setInterval(nextSlide, 5000);
+        return () => clearInterval(interval); // Cleanup interval on component unmount
+    }, [reviews.length]);
 
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
@@ -101,7 +107,6 @@ const Reviews = ({ reviews }: ReviewsProps) => {
                                 quality={50}
                                 priority
                             />
-                            <p className={styles.name}>{review.name}</p>
                             <section className={styles.starsContainer}>
                                 <div className={styles.star}>{starIcon}</div>
                                 <div className={styles.star}>{starIcon}</div>
@@ -109,6 +114,7 @@ const Reviews = ({ reviews }: ReviewsProps) => {
                                 <div className={styles.star}>{starIcon}</div>
                                 <div className={styles.star}>{starIcon}</div>
                             </section>
+                            <p className={styles.name}>{review.name}</p>
                         </section>
 
                         <section className={styles.textContainer}>
@@ -125,7 +131,6 @@ const Reviews = ({ reviews }: ReviewsProps) => {
                     </motion.div>
                 ))}
             </AnimatePresence>
-
             {/* Navigation buttons */}
             <button
                 onClick={prevSlide}
