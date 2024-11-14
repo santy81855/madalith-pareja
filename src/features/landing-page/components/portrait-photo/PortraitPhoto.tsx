@@ -3,7 +3,7 @@
 import styles from "./PortraitPhoto.module.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef, useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 type PortraitPhotoProps = {
     title: string;
@@ -12,9 +12,8 @@ type PortraitPhotoProps = {
 };
 
 const PortraitPhoto = ({ title, text, image }: PortraitPhotoProps) => {
-    const ref = useRef(null);
+    /* effect to add scroll animation but it is broken on mobile safari
     const [elementProgressY, setElementProgressY] = useState(0);
-
     useEffect(() => {
         const onScroll = () => {
             const element = document.getElementById("element");
@@ -47,20 +46,19 @@ const PortraitPhoto = ({ title, text, image }: PortraitPhotoProps) => {
                 .getElementById("landing-page")
                 ?.removeEventListener("scroll", onScroll);
     }, []);
+    */
 
     return (
-        <section className={styles.container} ref={ref} id="element">
+        <section className={styles.container} id="element">
             <div className={styles.textContainer}>
                 <p>{title}</p>
             </div>
             <motion.div
                 className={styles.contentContainer}
-                variants={{
-                    hidden: { y: "-100%" },
-                    visible: { y: `${-100 + elementProgressY * 100}%` },
-                }}
+                /*
                 initial={{ y: "-100%" }}
                 style={{ y: `${-100 + elementProgressY * 100}%` }}
+                */
             >
                 <motion.div className={styles.description}>
                     <Image
