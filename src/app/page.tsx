@@ -45,8 +45,8 @@ export default function Home() {
                 }
                 text={
                     language === "english"
-                        ? "Learn how to draw a still life and how to mix colors or create an art piece using only a single color."
-                        : "Aprende a dibujar un bodegón y a mezclar colores o a crear una obra de arte utilizando un solo color."
+                        ? "In the book, you will find a simple approach to learning how to draw starting with geometric shapes. We will also cover sketching, framing, and using tonal values to create volume."
+                        : "En el libro, encontrarás una forma simple para aprender a dibujar partiendo de figuras geométricas. Veremos, además del encaje y encuadre, el manejo de tonalidades para lograr volumen."
                 }
                 image="/images/landing-page/bodegon.jpeg"
             />
