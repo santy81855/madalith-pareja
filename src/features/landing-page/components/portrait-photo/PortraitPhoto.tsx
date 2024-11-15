@@ -61,15 +61,6 @@ const PortraitPhoto = ({ title, text, image }: PortraitPhotoProps) => {
                 */
             >
                 <motion.div className={styles.description}>
-                    <Image
-                        className={styles.imageLandscape}
-                        src="/images/landing-page/frutas.jpeg"
-                        alt="landscape"
-                        width={900}
-                        height={300}
-                        quality={50}
-                        priority
-                    />
                     <div className={styles.text}>
                         <p>{text}</p>
                     </div>
