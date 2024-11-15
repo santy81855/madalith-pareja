@@ -35,7 +35,14 @@ const Reviews = ({ reviews }: ReviewsProps) => {
     };
     */
 
-    const colorArray = ["#ffd400", "#fe7e0f", "	#8e3ccb", "	#00ffd2"];
+    const colorArray = [
+        "#ffd400",
+        "#01befe",
+        "#fe7e0f",
+        "#8e3ccb",
+        "#ff006d",
+        "	#00ffd2",
+    ];
 
     // Variants for animation
     const variants = {
@@ -79,7 +86,7 @@ const Reviews = ({ reviews }: ReviewsProps) => {
         <div className={styles.reviewContainer}>
             <p
                 className={styles.heading}
-                style={{ color: colorArray[currentIndex] }}
+                style={{ color: colorArray[currentIndex % colorArray.length] }}
             >
                 {language === "english" ? "Reviews" : "Comentarios"}
             </p>
@@ -93,7 +100,10 @@ const Reviews = ({ reviews }: ReviewsProps) => {
                         animate={getPosition(index)}
                         exit="hidden"
                         transition={{ duration: 0.5 }}
-                        style={{ backgroundColor: colorArray[index] }}
+                        style={{
+                            backgroundColor:
+                                colorArray[index % colorArray.length],
+                        }}
                     >
                         <section className={styles.imageContainer}>
                             <div
@@ -101,7 +111,7 @@ const Reviews = ({ reviews }: ReviewsProps) => {
                                 style={{
                                     backgroundColor:
                                         colorArray[
-                                            index + (1 % colorArray.length)
+                                            (index + 1) % colorArray.length
                                         ],
                                 }}
                             ></div>
@@ -148,7 +158,10 @@ const Reviews = ({ reviews }: ReviewsProps) => {
                                 ? styles.activeCircle
                                 : styles.inactiveCircle
                         }
-                        style={{ backgroundColor: colorArray[index] }}
+                        style={{
+                            backgroundColor:
+                                colorArray[index % colorArray.length],
+                        }}
                     ></button>
                 ))}
             </section>

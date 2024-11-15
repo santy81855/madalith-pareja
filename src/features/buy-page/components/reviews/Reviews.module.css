@@ -102,8 +102,13 @@
 }
 
 .name {
+    width: 100%;
     font-size: var(--font-size-small);
     font-weight: bold;
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 }
 
 .textContainer {

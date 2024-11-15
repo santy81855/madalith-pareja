@@ -35,6 +35,14 @@ const Page = () => {
                                 : "Este libro fue una excelente manera de mejorar en los conceptos básicos del arte mientras se pasa un buen rato. Lo recomiendo a cualquiera que quiera empezar a dibujar.",
                         image: "/images/buy-page/profile-pic-3.jpg",
                     },
+                    {
+                        name: "Alexandra",
+                        review:
+                            language === "english"
+                                ? "Art for Everyone by Mada is an excellent guide for learning drawing. It is easy to follow, suitable for all ages, and helps unlock hidden artistic skills through step-by-step exercises."
+                                : "Arte para Todos de Mada es una excelente guía para aprender a dibujar. Es fácil de seguir, apta para todas las edades y ayuda a despertar habilidades artísticas ocultas con ejercicios graduales.",
+                        image: "/images/buy-page/profile-pic-4.jpg",
+                    },
                 ]}
             />
             <Footer />
