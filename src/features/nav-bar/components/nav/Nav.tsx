@@ -130,7 +130,7 @@ const Nav = ({ styleProp }: navProps) => {
                         {languageIsOpen && (
                             <section className={styles.languageMenu}>
                                 <section className={styles.languageToggle}>
-                                    <p>
+                                    <p style={{ color: "black" }}>
                                         {language === "spanish"
                                             ? "Spanish"
                                             : "Spanish"}
@@ -143,7 +143,7 @@ const Nav = ({ styleProp }: navProps) => {
                                         }}
                                         onChange={handleToggleChange}
                                     />
-                                    <p>
+                                    <p style={{ color: "black" }}>
                                         {language === "english"
                                             ? "English"
                                             : "English"}
