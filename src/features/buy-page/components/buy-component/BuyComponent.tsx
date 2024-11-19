@@ -18,15 +18,26 @@ const BuyComponent = () => {
     return (
         <section className={styles.container}>
             <section className={styles.imageContainer}>
-                <Image
-                    className={styles.image}
-                    src="/images/landing-page/book-cover.png"
-                    alt="book cover"
-                    width={400}
-                    height={600}
-                    quality={70}
-                    priority
-                />
+                <section className={styles.mainImage}>
+                    <Image
+                        className={styles.image}
+                        src="/images/landing-page/book-cover.png"
+                        alt="book cover"
+                        width={400}
+                        height={600}
+                        quality={70}
+                        priority
+                    />
+                    <Image
+                        className={styles.colorImage}
+                        src="/images/buy-page/colors-transparent.png"
+                        alt="colors"
+                        width={400}
+                        height={200}
+                        quality={70}
+                        priority
+                    />
+                </section>
             </section>
             <section className={styles.colContainer}>
                 <section className={styles.titleContainer}>
