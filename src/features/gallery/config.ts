@@ -1,8 +1,7 @@
 export const GALLERY_CATEGORIES = [
-  'category1',
-  'category2',
-  'category3',
+  'oils',
+  'acrylics',
+  'glass',
 ] as const
 
 export type GalleryCategory = (typeof GALLERY_CATEGORIES)[number]
-

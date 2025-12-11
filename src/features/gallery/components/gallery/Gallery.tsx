@@ -5,7 +5,7 @@ import { urlFor } from '@/sanity/lib/image'
 import GridGallery from '../grid-gallery/GridGallery'
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
-export const revalidate = 60
+export const revalidate = 0
 
 type Dimensions = { width: number; height: number }
 type ArtWithDims = SanityTypes.Art & { dimensions?: Dimensions }
@@ -18,7 +18,9 @@ async function getArt(): Promise<ArtWithDims[]> {
       "dimensions": image.asset->metadata.dimensions
     }
   `
-  return await client.fetch<ArtWithDims[]>(query)
+  // Bypass CDN to reflect newly published content immediately
+  const freshClient = client.withConfig({ useCdn: false })
+  return await freshClient.fetch<ArtWithDims[]>(query)
 }
 
 const Gallery = async () => {
@@ -35,7 +37,7 @@ const Gallery = async () => {
       alt: doc.title,
       title: doc.title,
       caption: doc.description,
-      category: doc.category,
+      category: (doc.category || '').trim(),
       blurDataURL: urlFor(imageSource).width(10).height(10).blur(10).url(),
     }
   })

@@ -103,12 +103,14 @@ const GridGallery = ({ images }: GridGalleryProps) => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  const normalize = (s: string) => (s || '').trim().toLowerCase()
+
   const columnsByCategory = useMemo(() => {
     const result: Record<string, ImageItem[][]> = {}
     // All images
     result[ALL] = distributeImages(images, numColumns)
     for (const category of GALLERY_CATEGORIES) {
-      const filtered = images.filter((img) => img.category === category)
+      const filtered = images.filter((img) => normalize(img.category) === normalize(category))
       result[category] = distributeImages(filtered, numColumns)
     }
     return result
@@ -117,6 +119,8 @@ const GridGallery = ({ images }: GridGalleryProps) => {
   const handleImageLoad = (url: string) => {
     setLoadedImages((prev) => ({ ...prev, [url]: true }))
   }
+
+  const formatLabel = (s: string) => s.slice(0,1).toUpperCase() + s.slice(1)
 
   return (
     <section className={styles.container}>
@@ -134,7 +138,7 @@ const GridGallery = ({ images }: GridGalleryProps) => {
                 setItemHovered([-1, -1])
               }}
             >
-              {c}
+              {c === ALL ? 'All' : formatLabel(c)}
             </button>
           )
         })}
