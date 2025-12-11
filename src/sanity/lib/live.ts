@@ -8,7 +8,12 @@ type FetchArgs<TParams = Record<string, unknown>> = {
 export async function sanityFetch<T = unknown, TParams = Record<string, unknown>>(
   args: FetchArgs<TParams>
 ): Promise<{ data: T }> {
-  const data = await client.fetch<T>(args.query, args.params)
+  let data: T
+  if (args.params) {
+    data = await client.fetch<T>(args.query, args.params as unknown as Record<string, unknown>)
+  } else {
+    data = await client.fetch<T>(args.query)
+  }
   return { data }
 }
 
