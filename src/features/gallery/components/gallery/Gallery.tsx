@@ -3,10 +3,14 @@ import { client } from '@/sanity/lib/client'
 import * as SanityTypes from '@/@types'
 import { urlFor } from '@/sanity/lib/image'
 import GridGallery from '../grid-gallery/GridGallery'
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 export const revalidate = 60
 
-async function getArt() {
+type Dimensions = { width: number; height: number }
+type ArtWithDims = SanityTypes.Art & { dimensions?: Dimensions }
+
+async function getArt(): Promise<ArtWithDims[]> {
   const query = `
     *[_type == 'art' && defined(image.asset)]{
       ...,
@@ -14,24 +18,25 @@ async function getArt() {
       "dimensions": image.asset->metadata.dimensions
     }
   `
-  return await client.fetch(query)
+  return await client.fetch<ArtWithDims[]>(query)
 }
 
 const Gallery = async () => {
-  const art: SanityTypes.Art[] = await getArt()
+  const art = await getArt()
 
-  const images = art.map((art: SanityTypes.Art) => {
-    const dims = (art as any).dimensions || { width: 1000, height: 1000 }
+  const images = art.map((doc) => {
+    const dims: Dimensions = doc.dimensions ?? { width: 1000, height: 1000 }
+    const imageSource = doc.image as unknown as SanityImageSource
     return {
-      art,
-      src: urlFor((art as any).image).url(),
-      width: Math.max(1, Math.round(dims.width || 1000)),
-      height: Math.max(1, Math.round(dims.height || 1000)),
-      alt: (art as any).title,
-      title: (art as any).title,
-      caption: (art as any).description,
-      category: (art as any).category,
-      blurDataURL: urlFor((art as any).image).width(10).height(10).blur(10).url(),
+      art: doc,
+      src: urlFor(imageSource).url(),
+      width: Math.max(1, Math.round(dims.width)),
+      height: Math.max(1, Math.round(dims.height)),
+      alt: doc.title,
+      title: doc.title,
+      caption: doc.description,
+      category: doc.category,
+      blurDataURL: urlFor(imageSource).width(10).height(10).blur(10).url(),
     }
   })
 

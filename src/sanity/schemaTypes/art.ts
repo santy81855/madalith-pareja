@@ -1,6 +1,6 @@
 import { defineField } from 'sanity'
 
-export default {
+const art = {
   name: 'art',
   title: 'Art',
   type: 'document',
@@ -24,3 +24,4 @@ export default {
   ],
 }
 
+export default art
