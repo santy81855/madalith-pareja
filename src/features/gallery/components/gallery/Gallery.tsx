@@ -2,13 +2,18 @@ import styles from './style.module.css'
 import { client } from '@/sanity/lib/client'
 import * as SanityTypes from '@/@types'
 import { urlFor } from '@/sanity/lib/image'
-import { getImageDimensions } from '@sanity/asset-utils'
 import GridGallery from '../grid-gallery/GridGallery'
 
 export const revalidate = 60
 
 async function getArt() {
-  const query = `*[_type == 'art' && defined(image)]`
+  const query = `
+    *[_type == 'art' && defined(image.asset)]{
+      ...,
+      // Pull image dimensions from the asset metadata for Next/Image sizing
+      "dimensions": image.asset->metadata.dimensions
+    }
+  `
   return await client.fetch(query)
 }
 
@@ -16,17 +21,17 @@ const Gallery = async () => {
   const art: SanityTypes.Art[] = await getArt()
 
   const images = art.map((art: SanityTypes.Art) => {
-    const dims = getImageDimensions(art.image as any)
+    const dims = (art as any).dimensions || { width: 1000, height: 1000 }
     return {
       art,
-      src: urlFor(art.image as any).url(),
-      width: dims.width,
-      height: dims.height,
-      alt: art.title,
-      title: art.title,
-      caption: art.description,
-      category: art.category,
-      blurDataURL: urlFor(art.image as any).width(10).height(10).blur(10).url(),
+      src: urlFor((art as any).image).url(),
+      width: Math.max(1, Math.round(dims.width || 1000)),
+      height: Math.max(1, Math.round(dims.height || 1000)),
+      alt: (art as any).title,
+      title: (art as any).title,
+      caption: (art as any).description,
+      category: (art as any).category,
+      blurDataURL: urlFor((art as any).image).width(10).height(10).blur(10).url(),
     }
   })
 
@@ -38,4 +43,3 @@ const Gallery = async () => {
 }
 
 export default Gallery
-
