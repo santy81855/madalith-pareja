@@ -1,0 +1,490 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-block-end: var(--padding-x2large);
+}
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-block-start: var(--padding-large);
+    padding-block-end: var(--padding-x2large);
+    gap: var(--padding-medium);
+    position: relative;
+    padding-inline: var(--padding-large);
+}
+
+.buttonContainer button {
+    background-color: white;
+    width: 90px;
+    border: none;
+    padding-block: var(--padding-small);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: rgb(var(--text-color-rgb));
+    font-family: var(--font-caveat);
+    font-size: calc(var(--font-size-medium) * 0.8);
+    font-weight: bold;
+    position: relative;
+    margin-block-start: var(--padding-xsmall);
+}
+
+.button1 {
+    transform: rotate(5.16deg);
+}
+
+/* The glow effect */
+.button1::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    background: radial-gradient(
+        circle,
+        rgba(254, 73, 53, 0.4) 10%,
+        rgba(255, 223, 0, 0) 70%
+    );
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0;
+    transition:
+        transform 0s ease-out,
+        opacity 0.5s ease-out;
+    z-index: -1;
+}
+
+.button2 {
+    transform: rotate(-2.97deg);
+    z-index: 1;
+}
+
+/* The glow effect */
+.button2::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    background: radial-gradient(
+        circle,
+        rgba(249, 128, 255, 0.4) 10%,
+        rgba(255, 223, 0, 0) 70%
+    );
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0;
+    transition:
+        transform 0s ease-out,
+        opacity 0.5s ease-out;
+    z-index: -1;
+}
+
+.button3 {
+    transform: rotate(-5.37deg);
+}
+
+/* The glow effect */
+.button3::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    background: radial-gradient(
+        circle,
+        rgba(37, 92, 175, 0.4) 10%,
+        rgba(255, 223, 0, 0) 70%
+    );
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0;
+    transition:
+        transform 0s ease-out,
+        opacity 0.5s ease-out;
+    z-index: -1;
+}
+
+.loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    z-index: 1;
+    opacity: 1;
+    padding-block-start: var(--padding-x2large);
+}
+
+.fade {
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+
+.imageContainer {
+    width: 100%;
+    padding-inline: 10px;
+    position: relative;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: min-content;
+}
+
+.caption {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1px);
+    color: white;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+
+.notLoaded {
+    filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backgroundImage {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    z-index: 0;
+    filter: blur(1px);
+    top: 0;
+    right: 0;
+
+    opacity: 0.1;
+}
+
+.gridColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* .contactGrid .imageWrapper {
+    filter: blur(1px);
+}
+
+.contactGrid .imageWrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+} */
+
+.contactGrid .imageWrapper .caption {
+    display: none;
+}
+
+.contactGrid .hovered {
+    transform: scale(1);
+    z-index: 0;
+}
+.contactGrid {
+    filter: blur(1px);
+    margin-block-start: calc(-3.5 * var(--padding-x2large));
+    opacity: 0.5;
+    position: relative;
+    z-index: 0;
+}
+
+.contactGrid::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}
+
+.contactPage {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 100;
+    margin-block-start: var(--padding-xlarge);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding-xlarge);
+}
+
+.contactDetails {
+    width: fit-content;
+    align-self: flex-end;
+    background-color: white;
+    border-radius: var(--border-radius-small);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 300px;
+    gap: var(--padding-medium);
+    padding-block-start: var(--padding-medium);
+    padding-block-end: var(--padding-medium);
+    padding-inline: var(--padding-large);
+}
+
+.contactDetails p {
+    font-size: calc(var(--font-size-medium) * 1.1);
+    color: rgb(var(--text-color-rgb));
+    font-weight: bold;
+}
+
+.instagramLink {
+    width: 30px;
+    height: 30px;
+}
+
+.instagramLink svg {
+    width: 100%;
+    height: 100%;
+}
+
+.contactContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    border-radius: var(--border-radius-small);
+}
+
+.leftSide {
+    width: 300px;
+    display: none;
+}
+
+.leftImage {
+    width: 100%;
+    scale: 1.02;
+    height: auto;
+}
+
+.contactForm {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    padding-block-start: calc(var(--padding-x2large));
+    padding-block-end: var(--padding-large);
+    border-top-right-radius: var(--border-radius-small);
+    border-bottom-right-radius: var(--border-radius-small);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-inline: var(--padding-medium);
+}
+
+.backButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: var(--padding-small);
+    background-color: transparent;
+    border: none;
+    color: rgb(var(--text-color-rgb));
+    font-family: var(--font-caveat);
+    font-size: var(--font-size-small);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding-xsmall);
+}
+
+.backButton svg {
+    width: 20px;
+    height: 20px;
+    fill: rgb(var(--text-color-rgb));
+}
+
+.headingContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-medium);
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.headingContainer p {
+    font-size: var(--font-size-x2large);
+    color: rgb(var(--text-color-rgb));
+    font-weight: bold;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+}
+
+.formContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding-medium);
+    padding-block-end: var(--padding-medium);
+    padding-block-start: var(--padding-xsmall);
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding-medium);
+    padding-block: var(--padding-medium);
+    position: relative;
+}
+
+.formContainer input,
+.formContainer textarea {
+    width: 100%;
+    padding: var(--padding-small);
+    border-radius: var(--border-radius-xsmall);
+    border: 1px solid rgb(159, 159, 159);
+    background-color: transparent;
+    color: rgb(var(--text-color-rgb));
+    font-size: var(--font-size-medium);
+}
+
+.formContainer input::placeholder,
+.formContainer textarea::placeholder {
+    color: rgb(var(--text-color-rgb));
+    opacity: 0.5;
+}
+
+.formContainer input:focus,
+.formContainer textarea:focus {
+    outline: none;
+    border: 1px solid rgb(var(--accent-color-rgb));
+}
+
+.form textarea {
+    resize: none;
+}
+
+.form button {
+    background-color: rgb(var(--accent-color-rgb));
+    color: rgb(var(--accent-color-contrast-rgb));
+    padding: var(--padding-small) var(--padding-medium);
+    border-radius: var(--border-radius-xsmall);
+    border: none;
+    font-size: calc(var(--font-size-medium) * 0.8);
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+@media (width > 700px) {
+    .leftSide {
+        display: flex;
+    }
+
+    .contactDetails {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        max-width: fit-content;
+    }
+}
+
+@media (width > 350px) {
+    .contactGrid {
+        margin-block-start: calc(-2.5 * var(--padding-x2large));
+    }
+}
+
+@media (width > 580px) {
+    .contactGrid {
+        margin-block-start: calc(-2 * var(--padding-x2large));
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .instagramLink {
+        cursor: pointer;
+        transition: transform 0.5s;
+    }
+
+    .buttonContainer button {
+        cursor: pointer;
+        transition: transform 0.5s;
+    }
+
+    .button1:hover,
+    .button2:hover,
+    .button3:hover {
+        transform: scale(1.1);
+    }
+
+    /* When hovering, expand the glow */
+    .button1:hover::before,
+    .button2:hover::before,
+    .button3:hover::before {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+        filter: blur(10px);
+    }
+
+    .imageWrapper {
+        transition: ease-in-out 0.5s;
+    }
+
+    .hovered {
+        transform: scale(1.1);
+        z-index: 1000;
+    }
+
+    .captionHovered {
+        opacity: 1;
+    }
+
+    .focus {
+        opacity: 0.2;
+    }
+
+    .backButton:hover,
+    .backButton:hover svg {
+        color: rgb(var(--accent-color-hover-rgb));
+        fill: rgb(var(--accent-color-hover-rgb));
+        cursor: pointer;
+    }
+
+    .form button:hover {
+        background-color: rgb(var(--accent-color-hover-rgb));
+        color: rgb(var(--accent-color-contrast-hover-rgb));
+    }
+}

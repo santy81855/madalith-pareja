@@ -80,6 +80,23 @@ const Nav = ({ styleProp }: navProps) => {
                             </p>
                         </Link>
                         <Link
+                            href="/gallery"
+                            className={styles.hamLink}
+                            onClick={() => {
+                                setOpen(false);
+                            }}
+                        >
+                            <p
+                                className={`${styles.hamNavLink} ${
+                                    path.startsWith("/gallery")
+                                        ? styles.active
+                                        : styles.inactive
+                                }`}
+                            >
+                                {language === "english" ? "Gallery" : "Galería"}
+                            </p>
+                        </Link>
+                        <Link
                             href="/buy"
                             className={styles.hamNavButton}
                             onClick={() => {
@@ -117,6 +134,17 @@ const Nav = ({ styleProp }: navProps) => {
                             }`}
                         >
                             {language === "english" ? "Home" : "Inicio"}
+                        </p>
+                    </Link>
+                    <Link href="/gallery">
+                        <p
+                            className={`${styles.navLink} ${
+                                path.startsWith("/gallery")
+                                    ? styles.active
+                                    : styles.inactive
+                            }`}
+                        >
+                            {language === "english" ? "Gallery" : "Galería"}
                         </p>
                     </Link>
                     <Link href="/buy" className={styles.navButton}>
