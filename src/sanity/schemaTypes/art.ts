@@ -6,7 +6,6 @@ const art = {
   type: 'document',
   fields: [
     defineField({ name: 'title', title: 'Title', type: 'string' }),
-    defineField({ name: 'category', title: 'Category', type: 'string' }),
     defineField({
       name: 'slug',
       title: 'Slug',
