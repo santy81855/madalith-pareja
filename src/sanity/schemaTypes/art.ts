@@ -13,6 +13,12 @@ const art = {
       options: { source: 'title', maxLength: 96 },
     }),
     defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
   name: 'category',
   title: 'Category',
   type: 'string',
