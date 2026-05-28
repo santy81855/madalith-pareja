@@ -20,7 +20,9 @@ async function getArt(): Promise<ArtWithDims[]> {
   `
   // Bypass CDN to reflect newly published content immediately
   const freshClient = client.withConfig({ useCdn: false })
-  return await freshClient.fetch<ArtWithDims[]>(query)
+  return await freshClient.fetch<ArtWithDims[]>(query, {}, {
+  next: { revalidate: 0 },
+})
 }
 
 const Gallery = async () => {
