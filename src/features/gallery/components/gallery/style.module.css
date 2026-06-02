@@ -1,4 +1,6 @@
 .container {
-  width: 100%;
+    width: 100%;
+    height: calc(100% - var(--nav-height));
+    overflow-y: auto;
+    padding-block-end: var(--padding-block-large);
 }
-
